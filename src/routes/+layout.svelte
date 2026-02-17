@@ -8,8 +8,8 @@
 
 	onMount(async () => {
 		// webgl
-		const module = await import('$lib/graphics/background.svelte');
-		Scene = module.default;
+		// const module = await import('$lib/graphics/background.svelte');
+		// Scene = module.default;
 
 		function getDeviceType() {
 			const width =
@@ -59,9 +59,9 @@
 
 <slot />
 
-{#if Scene}
+<!-- {#if Scene}
 	<svelte:component this={Scene} />
-{/if}
+{/if} -->
 
 
 <style>
