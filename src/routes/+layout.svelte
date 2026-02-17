@@ -8,7 +8,7 @@
 
 	onMount(async () => {
 		// webgl
-		const module = await import('$lib/three/scene.svelte');
+		const module = await import('$lib/graphics/background.svelte');
 		Scene = module.default;
 
 		function getDeviceType() {
@@ -41,20 +41,21 @@
 
 <svelte:head>
 	<title>web4u.net.im</title>
-	<meta name="description" content="" />
-	<meta
-		name="keywords"
-		content="web4"
-	/>
+	<meta name="description" content="web, but 4 you." />
+	<meta name="keywords" content="web4, decentralised, email, blog" />
 	<meta name="author" content="web4u" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#232323" />
+	
 	<meta property="og:title" content="web4u.net.im" />
-	<meta
-		property="og:description"
-		content="web, but 4 you."
-	/>
+	<meta property="og:description" content="web, but for you. email in, web out." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://web4u.net.im" />
 	<meta property="og:image" content="https://web4u.net.im/square.png" />
+	
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" />
 </svelte:head>
+
 
 <slot />
 

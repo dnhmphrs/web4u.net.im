@@ -1,9 +1,9 @@
 @import 'normalize.css';
-@import '$lib/styles/fonts.css';
 
 :root {
-	--font-header: nb-television, serif;
-	--font-body: nb-architekt, serif;
+	--font-header: monospace;
+	--font-mono: monospace;
+	--font-body: monospace;
 	--column-width: 42rem;
 	--margin: 20px;
 
@@ -32,14 +32,6 @@
 	--primary-50: #23232380;
 }
 
-/* body {
-	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--background);
-	background-size: 100% 100%;
-	background: linear-gradient(var(--background), var(--background));
-} */
-
 *,
 *::before,
 *::after {
@@ -63,6 +55,10 @@ html {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 } */
+
+html, body {
+	overscroll-behavior: none;
+}
 
 ::-moz-selection {
 	/* Code for Firefox */
