@@ -9,27 +9,18 @@
 
 	font-family: var(--font-body);
 	color: var(--primary);
-	--border: 1px solid var(--background);
 }
 
 :root {
-	--background: #232323;
-	--background-50: #23232380;
-	--primary: #f0f0f0;
-	--primary-50: #f0f0f080;
+	--background: #e0d0d0;
+	--background-50: #e0d0d080;
+	--primary: #1b1b1b;
+	--primary-50: #1b1b1b80;
+	--primary-10: #1b1b1b1a;
 
 	--green: #008080;
 	--white: #fafafa;
 	--black: #1b1b1b;
-
-	--border: solid 1px var(--background);
-}
-
-:root.dark-mode {
-	--background: #d0d0d0;
-	--background-50: #d0d0d080;
-	--primary: #232323;
-	--primary-50: #23232380;
 }
 
 *,
@@ -38,96 +29,54 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-
 	font-weight: 400;
 	color: var(--primary);
-	text-transform: none;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.05em;
 	line-height: 150%;
 	font-size: 12px;
 }
 
-/* ::-webkit-scrollbar {
-	display: none;
-}
-
-html {
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-} */
-
 html, body {
 	overscroll-behavior: none;
+	background: var(--background);
 }
 
 ::-moz-selection {
-	/* Code for Firefox */
-	color: red;
-	background: yellow;
+	color: var(--background);
+	background: var(--primary);
 }
 
 ::selection {
-	color: red;
-	background: yellow;
+	color: var(--background);
+	background: var(--primary);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-header);
-	letter-spacing: 0.1em;
+	letter-spacing: 0.05em;
 	margin: 0;
-}
-
-h1 {
-	font-size: 22px;
 	font-weight: 400;
 }
 
 a {
 	text-decoration: none;
+	color: inherit;
 }
 
 a:hover {
 	text-decoration: underline;
 }
 
-input,
 button {
-	font-size: inherit;
 	font-family: inherit;
+	cursor: pointer;
 }
 
 button:focus:not(:focus-visible) {
 	outline: none;
 }
 
-.visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: auto;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	white-space: nowrap;
-}
-
-@media only screen and (max-width: 768px) {
-	h1 {
-		font-size: 18px;
-		font-weight: 400;
-	}
-
-	p,
-	a {
-		font-weight: 400;
-		text-transform: none;
-		letter-spacing: 0.08em;
-		font-size: 13px;
-	}
+:focus-visible {
+	outline: 1px solid var(--primary);
+	outline-offset: 2px;
 }

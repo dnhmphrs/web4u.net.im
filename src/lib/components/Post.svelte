@@ -1,198 +1,169 @@
 <script>
-	import { formatTimestamp, formatSize } from '$lib/store/posts.js';
+	import { formatTimestamp } from '$lib/store/posts.js';
 	
 	/** @type {import('$lib/store/posts.js').Post} */
 	export let post;
 	
-	let expanded = false;
+	export let open = false;
+	export let onToggle = () => {};
 </script>
 
-<article class="post" id={post.id}>
-	<header class="meta">
-		<div class="meta-row">
-			<span class="label">FROM</span>
-			<span class="value author" data-author={post.author}>{post.from}</span>
-		</div>
-		<div class="meta-row">
-			<span class="label">DATE</span>
-			<span class="value mono">{formatTimestamp(post.receivedAt)}</span>
-		</div>
-		<div class="meta-row">
-			<span class="label">SUBJ</span>
-			<span class="value subject">{post.subject}</span>
-		</div>
-		{#if post.to.length > 0}
-			<div class="meta-row secondary">
-				<span class="label">TO</span>
-				<span class="value mono">{post.to.join(', ')}</span>
+<article class="post" class:open id={post.id}>
+	<button class="post-header" on:click={onToggle}>
+		<span class="from">{post.from}</span>
+		<span class="subject">{post.subject}</span>
+		<span class="toggle">{open ? '▼' : '▶'}</span>
+	</button>
+
+	{#if open}
+		<div class="post-expanded">
+			<aside class="post-meta">
+				<dl>
+					<dt>FROM</dt>
+					<dd>{post.from}</dd>
+					
+					<dt>TO</dt>
+					<dd>{post.to.join(', ')}</dd>
+					
+					{#if post.cc.length > 0}
+						<dt>CC</dt>
+						<dd>{post.cc.join(', ')}</dd>
+					{/if}
+					
+					<dt>DATE</dt>
+					<dd>{formatTimestamp(post.receivedAt)}</dd>
+					
+					<dt>MSG-ID</dt>
+					<dd>{post.messageId}</dd>
+					
+					{#each Object.entries(post.headers) as [key, value]}
+						<dt>{key}</dt>
+						<dd>{value}</dd>
+					{/each}
+				</dl>
+			</aside>
+			
+			<div class="post-body">
+				{post.body}
 			</div>
-		{/if}
-		{#if post.cc.length > 0}
-			<div class="meta-row secondary">
-				<span class="label">CC</span>
-				<span class="value mono">{post.cc.join(', ')}</span>
-			</div>
-		{/if}
-		
-		<button 
-			class="headers-toggle" 
-			on:click={() => expanded = !expanded}
-			aria-expanded={expanded}
-		>
-			{expanded ? '[-]' : '[+]'} headers
-		</button>
-		
-		{#if expanded}
-			<div class="headers">
-				<div class="meta-row secondary">
-					<span class="label">MSG-ID</span>
-					<span class="value mono">{post.messageId}</span>
-				</div>
-				{#each Object.entries(post.headers) as [key, value]}
-					<div class="meta-row secondary">
-						<span class="label">{key}</span>
-						<span class="value mono">{value}</span>
-					</div>
-				{/each}
-			</div>
-		{/if}
-	</header>
-	
-	<div class="body">
-		{post.body}
-	</div>
-	
-	{#if post.attachments.length > 0}
-		<footer class="attachments">
-			<span class="label">ATTACHMENTS</span>
-			<ul>
-				{#each post.attachments as attachment}
-					<li>
-						<a href={attachment.url} target="_blank" rel="noopener">
-							{attachment.filename}
-						</a>
-						<span class="file-meta">[{attachment.type}, {formatSize(attachment.size)}]</span>
-					</li>
-				{/each}
-			</ul>
-		</footer>
+		</div>
 	{/if}
 </article>
 
 <style>
 	.post {
-		border-top: 1px solid var(--primary-20);
-		padding: 2rem 0;
+		border: 1px solid var(--primary-50);
+		margin-bottom: 0.5rem;
 	}
 	
-	.post:first-child {
-		border-top: none;
+	.post.open {
+		border-color: var(--primary);
 	}
 	
-	.meta {
-		margin-bottom: 1.5rem;
-	}
-	
-	.meta-row {
-		display: flex;
-		gap: 1rem;
-		line-height: 1.6;
-	}
-	
-	.meta-row.secondary {
-		opacity: 0.6;
-	}
-	
-	.label {
-		flex-shrink: 0;
-		width: 4rem;
-		color: var(--primary-50);
-		font-size: 10px;
-		letter-spacing: 0.15em;
-	}
-	
-	.value {
-		flex: 1;
-		word-break: break-word;
-	}
-	
-	.value.mono {
-		font-family: var(--font-mono);
-	}
-	
-	.value.author {
-		color: var(--accent);
-	}
-	
-	.value.subject {
-		font-weight: 600;
-	}
-	
-	.headers-toggle {
+	.post-header {
+		width: 100%;
+		padding: 0.75rem 1rem;
 		background: none;
 		border: none;
-		color: var(--primary-30);
-		font-family: var(--font-mono);
-		font-size: 10px;
-		letter-spacing: 0.1em;
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		text-align: left;
 		cursor: pointer;
-		padding: 0.5rem 0;
-		transition: color 0.15s ease;
 	}
 	
-	.headers-toggle:hover {
+	.post-header:hover {
+		background: var(--primary-10);
+	}
+	
+	.from {
+		flex-shrink: 0;
+		font-size: 10px;
 		color: var(--primary-50);
+		width: 180px;
 	}
 	
-	.headers {
-		margin-top: 0.5rem;
-		padding-left: 0;
-		animation: fadeIn 0.15s ease;
+	.subject {
+		flex: 1;
+		font-size: 12px;
 	}
 	
-	@keyframes fadeIn {
-		from { opacity: 0; transform: translateY(-4px); }
-		to { opacity: 1; transform: translateY(0); }
+	.toggle {
+		font-size: 8px;
+		color: var(--primary-50);
+		flex-shrink: 0;
 	}
 	
-	.body {
+	.post-expanded {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		border-top: 1px solid var(--primary-50);
+	}
+	
+	.post-meta {
+		padding: 1rem;
+		font-size: 9px;
+		line-height: 1.6;
+		border-right: 1px solid var(--primary-50);
+	}
+	
+	.post-meta dl {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.125rem 0.5rem;
+		font-size: 10px;
+	}
+	
+	.post-meta dt {
+		color: var(--primary-50);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-size: 10px;
+	}
+	
+	.post-meta dd {
+		word-break: break-all;
+		font-size: 10px;
+	}
+	
+	.post-body {
+		padding: 1rem;
 		white-space: pre-wrap;
-		font-family: var(--font-body);
+		font-size: 12px;
 		line-height: 1.7;
-		max-width: 60ch;
 	}
 	
-	.attachments {
-		margin-top: 1.5rem;
-		padding-top: 1rem;
-		border-top: 1px dashed var(--primary-10);
-	}
-	
-	.attachments .label {
-		display: block;
-		margin-bottom: 0.5rem;
-		width: auto;
-	}
-	
-	.attachments ul {
-		list-style: none;
-	}
-	
-	.attachments li {
-		font-family: var(--font-mono);
-		font-size: 11px;
-	}
-	
-	.attachments a {
-		color: var(--accent);
-	}
-	
-	.attachments a:hover {
-		text-decoration: underline;
-	}
-	
-	.file-meta {
-		color: var(--primary-30);
-		margin-left: 0.5rem;
+	@media (max-width: 640px) {
+		.from {
+			width: auto;
+		}
+		
+		.post-expanded {
+			grid-template-columns: 1fr;
+		}
+		
+		.post-meta {
+			border-right: none;
+			border-bottom: 1px solid var(--primary-50);
+		}
+		
+		.post-meta dl {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.25rem 1rem;
+		}
+		
+		.post-meta dt {
+			display: inline;
+		}
+		
+		.post-meta dt::after {
+			content: ' ';
+		}
+		
+		.post-meta dd {
+			display: inline;
+			margin-right: 1rem;
+		}
 	}
 </style>
