@@ -11,8 +11,8 @@
   },
   "plate": {
     "figCaption": "fig. 00 — generative field",
-    "stateLive": "violet field · live",
-    "statePaused": "violet field · paused"
+    "stateLive": "off-white field · live",
+    "statePaused": "off-white field · paused"
   },
   "masthead": {
     "kicker": "a research archive  ·  lo-tek · permacomputing · the slow web",
