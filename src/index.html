@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{DESCRIPTION}}" />
+  <meta name="theme-color" content="{{THEME_COLOR}}" />
+  <title>{{TITLE}}</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+
+  <!-- type: refined serif + neutral grotesque + mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="b brand">{{BRAND}} <span class="slash">/ index</span></div>
+  <nav>
+{{TOPNAV}}
+    <a class="always" href="#colophon">colophon</a>
+  </nav>
+</div>
+
+<div class="stage">
+  <canvas id="gl" data-live="{{PLATE_STATE}}" data-paused="{{PLATE_PAUSED}}"></canvas>
+  <div class="plate-meta">
+    <span>{{PLATE_FIG}}</span>
+    <span id="plateState">{{PLATE_STATE}}</span>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="kicker"><span class="sq"></span> {{KICKER}}</div>
+  <h1 class="big">{{MAST_TITLE}}</h1>
+  <p class="abstract">{{ABSTRACT}}</p>
+  <div class="runhead">
+{{RUNHEAD}}
+    <span id="liveclock">—</span>
+  </div>
+</div>
+
+<main>
+{{SECTIONS}}
+</main>
+
+<div class="colophon" id="colophon">
+  <div>
+    <div class="big-mark">{{COL_MARK}}</div>
+    <p class="blurb">{{COL_BLURB}}</p>
+  </div>
+  <div>
+    <h3>{{COL_FILED_H}}</h3>
+    <p>{{COL_FILED}}</p>
+    <h3 class="index-h">{{COL_INDEX_H}}</h3>
+    <p>{{COL_INDEX_NOTE}} · <a href="#" id="toTop">return to top ↑</a></p>
+  </div>
+</div>
+
+<script id="index-data" type="application/json">{{INDEX_JSON}}</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "web4u — index",
+    "description": "web4u — an index of lo-tek, permacomputing and slow-web projects. A research archive of links shared in #resources.",
+    "themeColor": "#eeece4",
+    "lang": "en"
+  },
+  "brand": {
+    "name": "web4u",
+    "accentChar": "u"
+  },
+  "plate": {
+    "figCaption": "fig. 00 — generative field",
+    "stateLive": "violet field · live",
+    "statePaused": "violet field · paused"
+  },
+  "masthead": {
+    "kicker": "a research archive  ·  lo-tek · permacomputing · the slow web",
+    "title": "web4u <i>index</i>",
+    "abstract": "A working index of <b>eighteen</b> projects shared in the room <span class=\"hash\">#resources</span> — solar-powered magazines, clay circuit boards, potato networks, compost servers, and a retired webring. Filed here as an archive: a list of links, lightly annotated. Computing that asks for less and lasts longer.",
+    "runhead": [
+      "web4u® index p.(01–18)",
+      "compiled apr 28 2026 — present"
+    ]
+  },
+  "sections": [
+    { "id": "theory",   "no": "1", "title": "Principles & Theory",  "desc": "Texts and frameworks that argue for a different relationship to computation." },
+    { "id": "practice", "no": "2", "title": "Practice & Hardware",  "desc": "Objects, devices and tutorials — energy and matter made visible." },
+    { "id": "network",  "no": "3", "title": "Networks & Tools",     "desc": "Webrings, slow protocols, and the small utilities that hold the scene together." }
+  ],
+  "links": [
+    { "order": 1,  "section": "theory",   "tag": "solar",            "title": "Low-Tech Magazine",                  "url": "https://solar.lowtechmagazine.com/",                                                                       "desc": "A solar-powered website that goes offline when its battery runs low, and dithers every image to save energy." },
+    { "order": 2,  "section": "theory",   "tag": "lo-tek",           "title": "Lo—TEK: Design by Radical Indigenism","url": "https://www.juliawatson.com/lo-tek-design-by-radical-indigenism",                                          "desc": "Julia Watson's book on nature-based technologies rooted in Traditional Ecological Knowledge." },
+    { "order": 3,  "section": "theory",   "tag": "indigenous · ai",  "title": "Indigenous Groups & Their Own ChatGPT","url": "https://atmos.earth/political-landscapes/indigenous-groups-are-safeguarding-culture-with-their-own-chatgpt/", "desc": "Atmos on Tainá — an Amazon-built AI vault, stored locally, owned by the community." },
+    { "order": 4,  "section": "theory",   "tag": "lo-tek",           "title": "Lo-TEK Institute",                   "url": "https://www.instagram.com/lotekinstitute/",                                                                "desc": "The Lo-TEK movement's Instagram. External link only — not archived here." },
+    { "order": 5,  "section": "theory",   "tag": "permacomputing",   "title": "Permacomputing",                     "url": "https://wiki.xxiivv.com/site/permacomputing.html",                                                         "desc": "Devine Lu Linvega's wiki: frugal, salvage and collapse computing; design for disassembly." },
+    { "order": 6,  "section": "theory",   "tag": "manifesto",        "title": "Newton Machine Manifesto",           "url": "https://reconstrained.design/projects/newton-machine-manifesto",                                           "desc": "Reconstrained Design's ten-point manifesto for community-built gravity batteries that store energy as story." },
+    { "order": 7,  "section": "theory",   "tag": "climate art",      "title": "The Potato Internet",                "url": "https://carolinesinders.com/the-potato-internet/",                                                         "desc": "Caroline Sinders' anti-upscaling social network, partly powered by potatoes and e-waste." },
+
+    { "order": 8,  "section": "practice", "tag": "ethical hardware", "title": "Clay PCB Tutorial",                  "url": "https://feministhackerspaces.cargo.site/Clay-PCB-Tutorial",                                                "desc": "Feminist Hackerspaces make printed circuit boards from wild clay and urban-mined silver." },
+    { "order": 9,  "section": "practice", "tag": "ethical hardware", "title": "Open Source Salt Battery",           "url": "https://shashwathsantosh.com/An-Open-Source-Salt-Battery-1",                                               "desc": "Shashwath Santosh's battery, built entirely from found objects and scrap metal." },
+    { "order": 10, "section": "practice", "tag": "ethical hardware", "title": "Cardboard Computer",                 "url": "https://www.zachrotholz.com/cardboard-computer.html",                                                      "desc": "Zach Rotholz's flat-pack corrugated laptop for kids, built around a Raspberry Pi." },
+    { "order": 11, "section": "practice", "tag": "sound",            "title": "Zonneliedjes",                       "url": "https://gieskes.nl/music/?file=zonneliedjes",                                                              "desc": "Gieskes: songs made directly from sunlight on circuit-bent, solar-powered instruments." },
+    { "order": 12, "section": "practice", "tag": "ai",               "title": "ASH — AI Pocket Field Guide",        "url": "https://www.finh.cc/ash",                                                                                  "desc": "A real-life Pokédex for young 'ecology guardians,' running iNaturalist on a Coral board." },
+    { "order": 13, "section": "practice", "tag": "climate art",      "title": "Compost Computer",                   "url": "https://compostweb.net/",                                                                                  "desc": "FutureEverything & UAL: a web server powered by the bio-energy of a community compost heap." },
+
+    { "order": 14, "section": "network",  "tag": "webring",          "title": "Onionring",                          "url": "https://allium.house/garden/onionring/",                                                                   "desc": "Allium House's tiny JavaScript widget for building webrings with almost no technical knowledge." },
+    { "order": 15, "section": "network",  "tag": "webring",          "title": "Low Tech Webring",                   "url": "https://emreed.net/LowTech_Directory",                                                                     "desc": "Em Reed's (retired) webring for Web 1.0-inspired, low-tech homepages. The spiritual hub." },
+    { "order": 16, "section": "network",  "tag": "slow web",         "title": "Slow Net",                           "url": "https://slownet.work/",                                                                                    "desc": "Beverly Chou's experiments in deliberate slowness as resistance to data extraction." },
+    { "order": 17, "section": "network",  "tag": "tool",             "title": "Fit on a Floppy",                    "url": "https://fitonafloppy.website/",                                                                            "desc": "Checks whether your webpage fits on a 1.44MB floppy. A physical reminder of filesize." },
+    { "order": 18, "section": "network",  "tag": "image tool",       "title": "Dither it!",                         "url": "https://ditherit.com/",                                                                                    "desc": "Free in-browser image dithering — Floyd–Steinberg, Atkinson, Bayer. Processed locally." },
+    { "order": 19, "section": "network",  "tag": "image tool",       "title": "Tooooools.app",                      "url": "https://www.tooooools.app/",                                                                               "desc": "Lo-fi image and video effects: dithering, halftone, CRT, ASCII. Free, no sign-up." }
+  ],
+  "colophon": {
+    "mark": "web4u®",
+    "blurb": "An index assembled from links shared in <span class=\"hash\">#resources</span>. No trackers, no cookies. The field above is generated live in WebGL — slate with a single electric-violet accent — and pauses when the tab is hidden.",
+    "filedHeading": "Filed under",
+    "filedUnder": "solar · lo-tek · indigenous knowledge · ethical hardware · permacomputing · webrings · slow web · image tools · climate art",
+    "indexHeading": "Index",
+    "indexNote": "18 entries · 3 sections · curated by daeillion, kissia, et al."
+  }
+}
