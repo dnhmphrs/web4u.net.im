@@ -84,14 +84,14 @@ if (top) top.onclick = (e) => { e.preventDefault(); scrollTo({ top: 0, behavior:
   setInterval(tick, 30000);
 })();
 
-/* ---- WebGL shader plate (slate field, single electric-violet accent) ---- */
+/* ---- WebGL shader plate (slate field, single electric-off-white  accent) ---- */
 (function () {
   const cv = document.getElementById('gl');
   if (!cv) return;
   const gl = cv.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
   const stateEl = document.getElementById('plateState');
-  const STATE_LIVE = cv.dataset.live || 'violet field · live';
-  const STATE_PAUSED = cv.dataset.paused || 'violet field · paused';
+  const STATE_LIVE = cv.dataset.live || 'off-white  field · live';
+  const STATE_PAUSED = cv.dataset.paused || 'off-white  field · paused';
   if (!gl) { cv.parentElement.style.background = 'linear-gradient(120% 90% at 30% 20%, #1b2128, #0e1115)'; return; }
 
   const vs = 'attribute vec2 p; void main(){ gl_Position=vec4(p,0.,1.); }';
@@ -121,7 +121,7 @@ if (top) top.onclick = (e) => { e.preventDefault(); scrollTo({ top: 0, behavior:
     vec3 c0=vec3(0.055,0.070,0.085);
     vec3 c1=vec3(0.13,0.17,0.20);
     vec3 c2=vec3(0.36,0.42,0.47);
-    vec3 c3=vec3(0.92,0.05,0.78);    // electric magenta/violet accent
+    vec3 c3=vec3(0.933,0.925,0.894);    // off-white accent
     vec3 col=mix(c0,c1,smoothstep(0.12,0.45,field));
     col=mix(col,c2,smoothstep(0.45,0.78,field));
     col=mix(col,c3,smoothstep(0.88,0.99,field)*0.9);
